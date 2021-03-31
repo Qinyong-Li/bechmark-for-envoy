@@ -26,7 +26,6 @@ def record_data(ip_port,port,password):
         if msg_rev==close_flag:
             break
 
-def main():
 
 
 main()
