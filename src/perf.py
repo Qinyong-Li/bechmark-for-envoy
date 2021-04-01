@@ -20,7 +20,7 @@ def record_data(ip_port, port, password):
         filename = con.recv().decode("utf-8")
         con.send(start_flag.encode("utf-8"))
         command = "sudo perf record -e cycles -p "+port
-        proc = subprocess.Popen("echo %s|sudo -S %s"(password, command))
+        proc = subprocess.Popen("echo %s|sudo -S %s"%(password, command),shell=True)
         msg_rev = con.recv().decode("utf=8")
         if msg_rev != finished_flag:
             exit()
@@ -29,4 +29,3 @@ def record_data(ip_port, port, password):
             break
 
 
-main()
